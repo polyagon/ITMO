@@ -6,6 +6,7 @@ import org.example.Items.Food;
 
 public interface Cookable {
     public void eat(Food food) throws CustomException;
-    public void cook (Food food, METHODSofCooking method) throws CustomException;
+
+    public void cook(Food food, METHODSofCooking method) throws CustomException;
 
 }

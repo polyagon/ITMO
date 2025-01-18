@@ -1,4 +1,5 @@
 package org.example.StoryTelling;
+
 import org.example.Enums.FOODStatus;
 import org.example.Enums.ITEMStatus;
 import org.example.Enums.METHODSofCooking;
@@ -11,17 +12,15 @@ import org.example.Items.Item;
 import org.example.Locations.Location;
 import org.example.Persons.*;
 
-import java.util.Scanner;
-
 public class Story {
 
 
     static Statment stat = new Statment("?", "", "do not");
 
-    public void check_stat(String s){
-        if(s == stat.no()){
+    public void check_stat(String s) {
+        if (s == stat.no()) {
             System.out.println(" Я не буду этого делать !!");
-        }else if(s == stat.ask()){
+        } else if (s == stat.ask()) {
             System.out.println("?");
         }
     }
@@ -35,7 +34,7 @@ public class Story {
         hero1.use(think, REASONS.knowledge);
         god.carry(hero1, REASONS.love);
 
-        Item life_rule = new Item(" Life rule " , ITEMStatus.ACTIVE, hero1);
+        Item life_rule = new Item(" Life rule ", ITEMStatus.ACTIVE, hero1);
         hero1.create(life_rule, REASONS.understanding);
         Item inner_voice = new Item(" Inner voice", ITEMStatus.ACTIVE, hero1);
         hero1.listen(inner_voice, REASONS.habit);
@@ -57,23 +56,23 @@ public class Story {
         hero1.have(scare);
 
         Location forest = new Location("Forest", 0.3);
-        Location rock = new Location("High rock", 100 );
+        Location rock = new Location("High rock", 100);
         Location home = new Location("Home", 0.5, rock);
         hero1.addOwn(home);
         hero1.find(home, REASONS.interest);
         hero1.moveTo(home, REASONS.love);
-        for(Item i: hero1.own){
+        for (Item i : hero1.own) {
             hero1.moveTo(home, i);
         }
 
 
         Item weed = new Item("Weed", ITEMStatus.ACTIVE);
-        Fire fire = new Fire("Cave", ITEMStatus.ACTIVE,weed, home, true);
+        Fire fire = new Fire("Cave", ITEMStatus.ACTIVE, weed, home, true);
 
         hero1.scared(fire.getSmoke(), REASONS.logic);
         check_stat(stat.yes());
 
-        Food bread = new Food("Bread",  1200, FOODStatus.RAW, new METHODSofCooking[]{METHODSofCooking.BAKEING, METHODSofCooking.FRYING, METHODSofCooking.BOILING});
+        Food bread = new Food("Bread", 1200, FOODStatus.RAW, new METHODSofCooking[]{METHODSofCooking.BAKEING, METHODSofCooking.FRYING, METHODSofCooking.BOILING});
 
 
         hero1.cook(bread, METHODSofCooking.BAKEING);

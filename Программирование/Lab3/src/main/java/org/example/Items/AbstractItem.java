@@ -6,68 +6,71 @@ import org.example.Locations.Location;
 import org.example.Persons.Person;
 
 public abstract class AbstractItem {
-    private String name;
-    private ITEMStatus status;
     Person owner;
     boolean isOwner = false;
     boolean isBelongLocation = false;
-    Location belong ;
+    Location belong;
+    private String name;
+    private ITEMStatus status;
 
-    public String getName(){
-        return name;
-    }
-
-    public AbstractItem(String name, ITEMStatus stat){
+    public AbstractItem(String name, ITEMStatus stat) {
         this.name = name;
         this.status = stat;
     }
-    public Person getOwner(){
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Person getOwner() {
         return this.owner;
     }
+
     public void setOwner(Person owner) {
-        if(owner == null){
+        if (owner == null) {
             this.owner = null;
             isOwner = false;
-        }else if(this.isOwner == false){
+        } else if (this.isOwner == false) {
             this.owner = owner;
 
             this.isOwner = true;
-        }else
-        {
+        } else {
             this.owner = owner;
         }
 
     }
 
-    public Location getLocation(){
+    public Location getLocation() {
         return this.belong;
     }
-    public void setLocation(Location loc){
-        if(owner == null){
+
+    public void setLocation(Location loc) {
+        if (owner == null) {
             this.belong = null;
             isBelongLocation = false;
-        }else{
+        } else {
             this.belong = loc;
             this.isBelongLocation = true;
         }
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public ITEMStatus getStatus(){
+    public ITEMStatus getStatus() {
         return status;
     }
-    public void setStatus(ITEMStatus stat){
+
+    public void setStatus(ITEMStatus stat) {
         this.status = stat;
     }
-    public boolean checkActive(){
+
+    public boolean checkActive() {
         return status == ITEMStatus.ACTIVE;
     }
 
     public abstract void use(Person p) throws FailedExcapiton;
-
 
 
 }

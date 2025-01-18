@@ -3,55 +3,47 @@ package org.example.Persons;
 import org.example.Enums.METHODSofCooking;
 import org.example.Excaptions.CustomException;
 import org.example.Interfaces.Cookable;
-import org.example.Interfaces.Feelable;
 import org.example.Interfaces.Fireable;
 import org.example.Items.AbstractItem;
 import org.example.Items.Fire;
 import org.example.Items.Food;
 
-public class Human extends Person implements  Cookable, Fireable {
+public class Human extends Person implements Cookable, Fireable {
 
 
-    public Human(String name, int age, int height){
-       this.setAge(age);
-       this.setHeight(height);
-       this.setName(name);
+    public Human(String name, int age, int height) {
+        this.setAge(age);
+        this.setHeight(height);
+        this.setName(name);
     }
 
 
-
-    public void cook(Food food, METHODSofCooking method) throws CustomException{
+    public void cook(Food food, METHODSofCooking method) throws CustomException {
         try {
             System.out.println(this.getName() + " cook " + food.getName());
             food.cooked(method);
-        } catch (CustomException e){
+        } catch (CustomException e) {
             System.out.println(this.getName() + " couldn't cook " + food.getName());
         }
     }
 
-    public void lightTheFire(Fire fire){
+    public void lightTheFire(Fire fire) {
         fire.light();
         nowLocation.dayVisability();
         System.out.println(this.getName() + " is able to light the fire");
     }
-    public void burn(Fire fire, AbstractItem item){
+
+    public void burn(Fire fire, AbstractItem item) {
         nowLocation.setUpVisability();
-        System.out.println(this.getName() + " be able to burn the "+ item.getName());
+        System.out.println(this.getName() + " be able to burn the " + item.getName());
     }
-
-
-
-
-
-
-
-
 
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Class: Human;\n name: " + this.getName() + ";\n age: " + this.getAge() + ";\n height: " + this.getHeight();
     }
+
     @Override
     public int hashCode() {
         int hash = this.getName().hashCode();
@@ -60,6 +52,7 @@ public class Human extends Person implements  Cookable, Fireable {
         hash += this.getHeight();
         return hash;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

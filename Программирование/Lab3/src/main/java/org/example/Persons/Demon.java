@@ -1,24 +1,19 @@
 package org.example.Persons;
 
-import org.example.Items.AbstractItem;
-import org.example.Items.Item;
-import org.example.Locations.AbstractLocation;
-import org.example.Locations.Location;
+public class Demon extends Person {
 
-public class Demon extends Person{
-
-    public Demon(String name, int age, int height){
+    public Demon(String name, int age, int height) {
         this.setAge(age);
         this.setHeight(height);
         this.setName(name);
     }
 
 
-
     @Override
-    public String toString(){
+    public String toString() {
         return "Class: Demon;\n name: " + this.getName() + ";\n age: " + this.getAge() + ";\n height: " + this.getHeight();
     }
+
     @Override
     public int hashCode() {
         int hash = this.getName().hashCode();
@@ -27,6 +22,7 @@ public class Demon extends Person{
         hash += this.getHeight();
         return hash;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
